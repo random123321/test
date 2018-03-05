@@ -59,16 +59,17 @@ class my_module extends CModule
 	    CopyDirFiles(__DIR__ . '/admin', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/admin', true, true);
         ModuleManager::registerModule($this->MODULE_ID);
         
-        $this->installDB();
+       // $this->installDB();
     }
 
     public function doUninstall()
     {
 	    DeleteDirFiles(__DIR__ . '/admin', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/admin');
-        $this->uninstallDB();
+        //$this->uninstallDB();
         ModuleManager::unregisterModule($this->MODULE_ID);
     }
 
+    /*
     public function installDB()
     {
         if (Loader::includeModule($this->MODULE_ID)) {
@@ -78,7 +79,9 @@ class my_module extends CModule
 	        }
         }
     }
+    */
 
+	/*
     public function uninstallDB()
     {
         if (Loader::includeModule($this->MODULE_ID)) {
@@ -86,4 +89,5 @@ class my_module extends CModule
             $connection->dropTable(ExampleTable::getTableName());
         }
     }
+    */
 }

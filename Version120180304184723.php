@@ -24,8 +24,10 @@ class Version120180304184723 extends Version {
     public function down(){
         $helper = new HelperManager();
         
-        $connection = Application::getInstance()->getConnection();
-        $connection->dropTable(\MyModule\ExampleTable::getTableName());
+        if(\Bitrix\Main\Loader::includeModule('my.module')){
+	        $connection = \Bitrix\Main\Application::getInstance()->getConnection();
+	        $connection->dropTable(\MyModule\ExampleTable::getTableName());
+	    }
 
     }
 
